@@ -4,7 +4,6 @@ package tda;
 // Permite recuperar o modificar el estado de un dispositivo por su código único
 // La diferencia respecto al de clase: la clave es String (código de dispositivo)
 public class Diccionario<V> implements IDiccionario<V> {
-
     // Clase interna Dato, equivalente a la de diccionarios/Dato.java
     private class Dato {
         String clave;
@@ -16,14 +15,14 @@ public class Diccionario<V> implements IDiccionario<V> {
         }
     }
 
-    private Dato[] datosDiccionario;
+    private Object[] datosDiccionario;
     private int cantidad;
     private int dimension;
 
     @SuppressWarnings("unchecked")
     public Diccionario(int dimension) {
         this.dimension = dimension;
-        this.datosDiccionario = (Dato[]) new Dato[dimension];
+        this.datosDiccionario = new Object[dimension];
         this.cantidad = 0;
     }
 
@@ -37,7 +36,7 @@ public class Diccionario<V> implements IDiccionario<V> {
             return -1;
         }
         for (int i = 0; i < cantidad; i++) {
-            if (datosDiccionario[i].clave.equals(clave)) {
+            if (((Dato) datosDiccionario[i]).clave.equals(clave)) {
                 return i;
             }
         }
@@ -63,7 +62,7 @@ public class Diccionario<V> implements IDiccionario<V> {
     public V recuperarValor(String clave) {
         int posicion = existe(clave);
         if (posicion != -1) {
-            return datosDiccionario[posicion].valor;
+            return ((Dato) datosDiccionario[posicion]).valor;
         }
         System.out.println("No existe la clave: " + clave);
         return null;
@@ -73,7 +72,7 @@ public class Diccionario<V> implements IDiccionario<V> {
     public boolean modificar(String clave, V valor) {
         int posicion = existe(clave);
         if (posicion != -1) {
-            datosDiccionario[posicion].valor = valor;
+            ((Dato) datosDiccionario[posicion]).valor = valor;
             return true;
         }
         System.out.println("No existe la clave a modificar: " + clave);
@@ -103,7 +102,7 @@ public class Diccionario<V> implements IDiccionario<V> {
         if (!estaVacio()) {
             System.out.println("Diccionario:");
             for (int i = 0; i < cantidad; i++) {
-                System.out.println("  " + datosDiccionario[i].clave + " --> " + datosDiccionario[i].valor);
+                System.out.println("  " +  ((Dato) datosDiccionario[i]).clave + " --> " + ((Dato) datosDiccionario[i]).valor);
             }
         } else {
             System.out.println("No existen elementos en el diccionario.");
@@ -113,7 +112,7 @@ public class Diccionario<V> implements IDiccionario<V> {
     public void listarClaves() {
         System.out.print("Claves: ");
         for (int i = 0; i < cantidad; i++) {
-            System.out.print(datosDiccionario[i].clave + " - ");
+            System.out.print(((Dato) datosDiccionario[i]).clave + " - ");
         }
         System.out.println();
     }
