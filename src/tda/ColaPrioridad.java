@@ -7,9 +7,9 @@ public class ColaPrioridad {
 
     // Clase interna Elemento, idéntica a la vista en el PDF de la materia
     public static class Elemento {
-        int dato;
-        int prioridad;
-        String descripcion; // campo extra para el dominio del TPO
+        public int dato;
+        public int prioridad;
+        public String descripcion; // campo extra para el dominio del TPO
 
         public Elemento(int dato, int prioridad, String descripcion) {
             this.dato = dato;
