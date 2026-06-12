@@ -10,7 +10,7 @@ import modelo.UnidadEmergencia;
 // Mayor gravedad → mayor prioridad → se atiende primero
 // Usa el modelo Emergencia y UnidadEmergencia (según UML propuesto)
 public class DespachoEmergencias {
-    //hola
+    //holajjjjjj
 
     private ColaPrioridad cola;
     private Emergencia[] registroEmergencias;  // referencia a los objetos Emergencia
