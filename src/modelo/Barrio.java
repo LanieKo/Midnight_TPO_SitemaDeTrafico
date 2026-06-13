@@ -27,10 +27,9 @@ public class Barrio {
         return true;
     }
 
-    public String getNombre()     { return nombre; }
-    public int getCantManzanas()  { return cantManzanas; }
-    public Manzana[] getManzanas(){ return manzanas; }
+    public void mostrarBarrios(){
+        System.out.println("Barrio: " + nombre);
+    }
 
-    @Override
-    public String toString() { return "Barrio " + nombre; }
+
 }
