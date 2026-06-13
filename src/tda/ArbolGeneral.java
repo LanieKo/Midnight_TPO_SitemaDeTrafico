@@ -1,9 +1,7 @@
 package tda;
 
 // TDA Árbol General (N-ario)
-// Basado en los conceptos del PDF clase8Mayo_TDA_Arbol.pdf
-// La diferencia con el AVL de clase: cada nodo puede tener N hijos (no solo izq/der)
-// Usado para modelar jerarquía: Ciudad -> Comuna -> Barrio -> Manzana
+
 public class ArbolGeneral<T> {
 
     // Nodo del árbol general: tiene dato y una lista de hijos

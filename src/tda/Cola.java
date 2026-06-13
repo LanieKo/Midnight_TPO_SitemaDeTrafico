@@ -1,6 +1,6 @@
 package tda;
 
-// TDA Cola con nodos enlazados - basado en Cola.java visto en clase (Arbol/Cola.java)
+// TDA Cola con nodos enlazados
 public class Cola<T> implements ICola<T> {
 
     private class NodoCola {

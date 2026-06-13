@@ -1,8 +1,7 @@
 package modelo;
 
 // Semáforo: hereda de Dispositivo (ver UML: Dispositivo → hereda en → Semáforo y Cámara)
-// Atributos propios: tiempoCambio
-// Métodos propios: cambiarLuz()
+
 public class Semaforo extends Dispositivo {
 
     public enum Luz { ROJO, AMARILLO, VERDE }
@@ -16,7 +15,6 @@ public class Semaforo extends Dispositivo {
         this.luzActual = Luz.ROJO;
     }
 
-    // cambiarLuz() según el UML propuesto
     public void cambiarLuz() {
         switch (luzActual) {
             case ROJO:    luzActual = Luz.VERDE;   break;
@@ -26,13 +24,16 @@ public class Semaforo extends Dispositivo {
         System.out.println("Semáforo " + getCodigoUnico() + " → luz cambiada a: " + luzActual);
     }
 
-    public Luz getLuzActual()    { return luzActual; }
-    public int getTiempoCambio() { return tiempoCambio; }
+    public Luz getLuzActual()    {
+        return luzActual;
+    }
+    public int getTiempoCambio() {
+        return tiempoCambio;
+    }
 
     @Override
     public String toString() {
-        return "SEMAFORO | " + super.toString()
-                + " | Luz: " + luzActual
+        return "SEMAFORO | " + super.toString()  + " | Luz: " + luzActual
                 + " | TiempoCambio: " + tiempoCambio + "s";
     }
 }

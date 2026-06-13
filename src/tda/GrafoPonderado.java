@@ -1,9 +1,7 @@
 package tda;
 
 // TDA Grafo con Matriz de Adyacencia PONDERADA
-// Basado en grafo1/GrafoMatrizAdyacencia.java visto en clase
-// Diferencia respecto al de clase: guarda el PESO de la arista (distancia)
-// en lugar de solo 0/1, para poder calcular la ruta más corta.
+
 public class GrafoPonderado<T> implements IGrafoPonderado<T> {
 
     private T[] vertices;
@@ -20,8 +18,6 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
         this.vertices = (T[]) new Object[capacidad];
         this.matriz = new int[capacidad][capacidad];
     }
-
-    // ─── Operaciones básicas del IGrafo de clase ─────────────────────────────
 
     public void insertarVertice(T vertice) {
         if (cantidad == capacidad) {
@@ -40,7 +36,6 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
         return obtenerIndice(vertice) != -1;
     }
 
-    // Busca el índice del vértice en el arreglo (igual que en clase)
     private int obtenerIndice(T vertice) {
         for (int i = 0; i < cantidad; i++) {
             if (vertices[i].equals(vertice)) {
@@ -50,7 +45,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
         return -1;
     }
 
-    // Inserta arista con peso (distancia en km/min según el TPO)
+    // Inserta arista con peso
     public void insertarArista(T origen, T destino, int peso) {
         int posOrigen = obtenerIndice(origen);
         int posDestino = obtenerIndice(destino);
@@ -96,22 +91,31 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
 
     public void mostrarMatriz() {
         System.out.println("Matriz de adyacencia (pesos):");
-        System.out.print("    ");
+        System.out.printf("%-10s", "");
         for (int i = 0; i < cantidad; i++) {
-            System.out.printf("%-6s", vertices[i]);
+            System.out.printf("%8s", vertices[i]);
+        }
+        System.out.println();
+        System.out.print("          ");
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("--------");
         }
         System.out.println();
         for (int i = 0; i < cantidad; i++) {
-            System.out.printf("%-4s", vertices[i]);
+            System.out.printf("%-10s", vertices[i]);
             for (int j = 0; j < cantidad; j++) {
-                System.out.printf("%-6d", matriz[i][j]);
+                if (matriz[i][j] == 0) {
+                    System.out.printf("%8s", "-");
+                } else {
+                    System.out.printf("%8d", matriz[i][j]);
+                }
             }
             System.out.println();
         }
     }
 
-    // ─── BFS: determina si existe ruta entre dos puntos ──────────────────────
-    // Usa la Cola<T> definida en tda/Cola.java (misma clase de la materia)
+    // BFS: determina si existe ruta entre dos puntos
+    // Usa la Cola<T>
     public boolean existeRuta(T origen, T destino) {
         int posOrigen = obtenerIndice(origen);
         int posDestino = obtenerIndice(destino);
@@ -141,7 +145,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
         return false;
     }
 
-    // ─── Dijkstra: ruta más corta (distancia mínima) ─────────────────────────
+    //  Dijkstra: ruta más corta (distancia mínima)
     // Algoritmo clásico con arreglos, sin importar librerías externas
     // Retorna el arreglo de distancias mínimas desde el origen
     public int[] dijkstra(T origen) {

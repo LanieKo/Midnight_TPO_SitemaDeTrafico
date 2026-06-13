@@ -8,11 +8,7 @@ import modelo.Barrio;
 import modelo.Manzana;
 
 // MÓDULO 4 - Organización Territorial
-// TDA utilizado: Árbol General (N-ario) para representación visual + clases del modelo
-// Jerarquía: Ciudad (raíz) → Comunas → Barrios → Manzanas
-// Basado en PDF clase8Mayo_TDA_Arbol.pdf y ArbolAVL.java de la materia
-// El ArbolGeneral<String> guarda los NOMBRES para la visualización jerárquica;
-// los objetos del modelo (Ciudad, Comuna, Barrio, Manzana) gestionan los datos.
+
 public class OrganizacionTerritorial {
 
     private ArbolGeneral<String> arbolTerritorial;
@@ -27,7 +23,7 @@ public class OrganizacionTerritorial {
     public void crearCiudad(String nombreCiudad) {
         ciudad = new Ciudad(nombreCiudad);
         arbolTerritorial.crearRaiz(nombreCiudad, 20);
-        System.out.println("Ciudad creada: " + nombreCiudad);
+        //System.out.println("Ciudad creada: " + nombreCiudad);
     }
 
     // Agrega una comuna (reemplaza "Zona" del borrador) como hijo de la raíz
@@ -44,7 +40,7 @@ public class OrganizacionTerritorial {
         }
         boolean ok = arbolTerritorial.agregarHijo(raiz, nombreComuna, 15);
         if (ok) {
-            System.out.println("Comuna agregada: " + nombreComuna);
+            //System.out.println("Comuna agregada: " + nombreComuna);
             return arbolTerritorial.buscar(nombreComuna);
         }
         return null;
@@ -66,7 +62,7 @@ public class OrganizacionTerritorial {
         }
         boolean ok = arbolTerritorial.agregarHijo(nodoComuna, nombreBarrio, 30);
         if (ok) {
-            System.out.println("Barrio agregado: " + nombreBarrio + " → Comuna: " + nombreComuna);
+            //System.out.println("Barrio agregado: " + nombreBarrio + " → Comuna: " + nombreComuna);
             return arbolTerritorial.buscar(nombreBarrio);
         }
         return null;
@@ -81,7 +77,7 @@ public class OrganizacionTerritorial {
         }
         boolean ok = arbolTerritorial.agregarHijo(nodoBarrio, "Manzana " + codigoManzana, 0);
         if (ok) {
-            System.out.println("Manzana " + codigoManzana + " agregada → Barrio: " + nombreBarrio);
+            //System.out.println("Manzana " + codigoManzana + " agregada → Barrio: " + nombreBarrio);
         }
     }
 
@@ -108,6 +104,10 @@ public class OrganizacionTerritorial {
         }
     }
 
-    public Ciudad getCiudad()       { return ciudad; }
-    public int totalTerritorios()   { return arbolTerritorial.cantidadNodos(); }
+    public Ciudad getCiudad()       {
+        return ciudad;
+    }
+    public int totalTerritorios()   {
+        return arbolTerritorial.cantidadNodos();
+    }
 }

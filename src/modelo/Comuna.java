@@ -1,8 +1,6 @@
 package modelo;
 
-// Comuna: subdivisión de la Ciudad (equivalente a "Zona" del borrador)
-// Atributos: nombre, barrios (según UML propuesto)
-// Métodos: agregarBarrios(), obtenerBarrios()
+// Comuna: subdivisión de la Ciudad
 public class Comuna {
 
     public String nombre;
@@ -16,7 +14,6 @@ public class Comuna {
         this.cantBarrios = 0;
     }
 
-    // agregarBarrios() según el UML propuesto
     public boolean agregarBarrios(Barrio barrio) {
         if (cantBarrios == MAX_BARRIOS) {
             System.out.println("Comuna " + nombre + ": máximo de barrios alcanzado.");
@@ -27,7 +24,6 @@ public class Comuna {
         return true;
     }
 
-    // obtenerBarrios() según el UML propuesto
     public Barrio[] obtenerBarrios() {
         return barrios;
     }

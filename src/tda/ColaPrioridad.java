@@ -1,15 +1,15 @@
 package tda;
 
-// TDA Cola con Prioridad - basado en el PDF claseAbril10_ColaCircularyConPrioridad.pdf
+// TDA Cola con Prioridad
 // Mayor número = mayor prioridad. El arreglo queda ordenado de mayor a menor prioridad.
-// El elemento de mayor prioridad queda en la posición 0 (igual que en clase).
+// El elemento de mayor prioridad queda en la posición 0 .
 public class ColaPrioridad {
 
-    // Clase interna Elemento, idéntica a la vista en el PDF de la materia
+
     public static class Elemento {
         public int dato;
         public int prioridad;
-        public String descripcion; // campo extra para el dominio del TPO
+        public String descripcion;
 
         public Elemento(int dato, int prioridad, String descripcion) {
             this.dato = dato;
@@ -42,12 +42,7 @@ public class ColaPrioridad {
     }
 
     // Inserción ordenada: mantiene el arreglo de mayor a menor prioridad
-    // Algoritmo pseudocódigo del PDF:
-    //   i ← cantidad - 1
-    //   mientras i >= 0 y cola[i].prioridad < prioridad hacer
-    //     cola[i+1] ← cola[i]   (desplazar)
-    //     i ← i - 1
-    //   cola[i+1] ← nuevo
+
     public boolean insertar(int dato, int prioridad, String descripcion) {
         if (estaLlena()) {
             System.out.println("Cola con prioridad llena: no se puede insertar.");
@@ -65,10 +60,6 @@ public class ColaPrioridad {
     }
 
     // Elimina y retorna el elemento de mayor prioridad (posición 0)
-    // Algoritmo del PDF:
-    //   eliminado ← cola[0]
-    //   para i desde 0 hasta cantidad-2: cola[i] ← cola[i+1]
-    //   cantidad ← cantidad - 1
     public Elemento eliminar() {
         if (estaVacia()) {
             System.out.println("Cola con prioridad vacía: no se puede eliminar.");

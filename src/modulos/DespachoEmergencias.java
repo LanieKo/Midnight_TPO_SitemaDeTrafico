@@ -5,10 +5,7 @@ import modelo.Emergencia;
 import modelo.UnidadEmergencia;
 
 // MÓDULO 2 - Despacho de Emergencias
-// TDA utilizado: Cola con Prioridad (ColaPrioridad)
-// Basado en el PDF claseAbril10_ColaCircularyConPrioridad.pdf de la materia
-// Mayor gravedad → mayor prioridad → se atiende primero
-// Usa el modelo Emergencia y UnidadEmergencia (según UML propuesto)
+
 public class DespachoEmergencias {
 
     private ColaPrioridad cola;
@@ -36,7 +33,7 @@ public class DespachoEmergencias {
         registroEmergencias[id - 1] = e;
         boolean insertada = cola.insertar(id, gravedad, descripcion);
         if (insertada) {
-            System.out.println("Emergencia reportada: " + e);
+            //System.out.println("Emergencia reportada: " + e);
         }
     }
 

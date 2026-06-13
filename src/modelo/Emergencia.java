@@ -1,8 +1,7 @@
 package modelo;
 
 // Emergencia: incidente que se gestiona con Cola de Prioridad
-// Atributos: id, gravedad, ubicacion, hora (según UML propuesto)
-// Método: asignarPrioridad()
+
 public class Emergencia {
 
     private int id;
@@ -13,7 +12,8 @@ public class Emergencia {
 
     public Emergencia(int id, int gravedad, String ubicacion, String hora, String descripcion) {
         if (gravedad < 1 || gravedad > 10) {
-            throw new IllegalArgumentException("La gravedad debe estar entre 1 y 10.");
+            System.out.println("Gravedad inválida. No se registro la emergencia.");
+            return;
         }
         this.id = id;
         this.gravedad = gravedad;
@@ -22,7 +22,6 @@ public class Emergencia {
         this.descripcion = descripcion;
     }
 
-    // asignarPrioridad() según el UML propuesto
     // Retorna un nivel descriptivo según la gravedad
     public String asignarPrioridad() {
         if (gravedad >= 8)      return "CRÍTICA";
@@ -30,11 +29,21 @@ public class Emergencia {
         else                    return "LEVE";
     }
 
-    public int getId()          { return id; }
-    public int getGravedad()    { return gravedad; }
-    public String getUbicacion(){ return ubicacion; }
-    public String getHora()     { return hora; }
-    public String getDescripcion() { return descripcion; }
+    public int getId()          {
+        return id;
+    }
+    public int getGravedad()    {
+        return gravedad;
+    }
+    public String getUbicacion(){
+        return ubicacion;
+    }
+    public String getHora()     {
+        return hora;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
 
     @Override
     public String toString() {

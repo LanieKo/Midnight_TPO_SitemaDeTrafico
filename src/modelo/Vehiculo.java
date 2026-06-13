@@ -1,8 +1,7 @@
 package modelo;
 
 // Vehículo que circula por la red vial
-// Atributos: patente, tipo (según UML propuesto)
-// Método: avanzar()
+
 public class Vehiculo {
 
     public enum Tipo { AUTO, MOTO, CAMION, AMBULANCIA, BOMBEROS }
@@ -18,13 +17,16 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
-    // avanzar() según el UML propuesto
     public void avanzar(String destino) {
         System.out.println("Vehículo " + patente + " [" + tipo + "] avanzando hacia: " + destino);
     }
 
-    public String getPatente() { return patente; }
-    public Tipo getTipo()      { return tipo; }
+    public String getPatente() {
+        return patente;
+    }
+    public Tipo getTipo()      {
+        return tipo;
+    }
 
     @Override
     public String toString() {

@@ -6,8 +6,7 @@ import modelo.Semaforo;
 import modelo.Camara;
 
 // MÓDULO 3 - Gestor de Dispositivos (semáforos y cámaras)
-// TDA utilizado: Diccionario<Dispositivo> (clave = codigoUnico String)
-// Basado en diccionarios/Diccionario.java de la materia
+
 // Admite Semaforo y Camara (ambos heredan de Dispositivo)
 // Permite recuperar o modificar el estado de un dispositivo por su código único
 public class GestorDispositivos {
@@ -22,7 +21,7 @@ public class GestorDispositivos {
     public void registrar(Dispositivo dispositivo) {
         boolean insertado = indiceDispositivos.insertar(dispositivo.getCodigoUnico(), dispositivo);
         if (insertado) {
-            System.out.println("Dispositivo registrado: " + dispositivo);
+            //System.out.println("Dispositivo registrado: " + dispositivo.getCodigoUnico());
         }
     }
 
@@ -41,7 +40,7 @@ public class GestorDispositivos {
         if (d != null) {
             d.modificarEstado(nuevoEstado);
             indiceDispositivos.modificar(codigoUnico, d);
-            System.out.println("Estado actualizado → " + d);
+            System.out.println("Estado actualizado -> " + d);
         }
     }
 
@@ -77,7 +76,9 @@ public class GestorDispositivos {
         return indiceDispositivos.existe(codigoUnico) != -1;
     }
 
-    public int totalRegistrados() { return indiceDispositivos.tamanio(); }
+    public int totalRegistrados() {
+        return indiceDispositivos.tamanio();
+    }
 
     public void mostrarTodos() {
         System.out.println("\n--- Inventario de Dispositivos ---");

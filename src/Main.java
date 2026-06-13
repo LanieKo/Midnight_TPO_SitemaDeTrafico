@@ -7,9 +7,7 @@ import modelo.*;
 
 // TRABAJO PRÁCTICO OBLIGATORIO - Programación 2 - 2026
 // "Midnight" - Sistema Inteligente de Tráfico y Emergencias
-// Alternativa B
-// Etapa 2
-// ============================================================
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,11 +16,8 @@ public class Main {
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
         System.out.println("=======================================================\n");
 
-        // ─────────────────────────────────────────────────────────
-        // MÓDULO 1: Modelado de la Ciudad (Grafo Ponderado)
-        // TDA: GrafoPonderado<String> con Matriz de Adyacencia
-        // Vértices: Interseccion | Aristas: Calle (con distancia)
-        // ─────────────────────────────────────────────────────────
+        // MÓDULO 1: Red vial
+
         System.out.println(">>> MÓDULO 1: Modelado de la Ciudad <<<");
         ModeladoCiudad redVial = new ModeladoCiudad(8, false);
 
@@ -49,24 +44,22 @@ public class Main {
 
         redVial.mostrarRed();
 
-        // BFS: verificar existencia de ruta
+        // BFS
         redVial.existeRuta("INT-01", "INT-04");
-        redVial.existeRuta("INT-02", "INT-05");
+        //redVial.existeRuta("INT-02", "INT-05");
 
-        // Dijkstra: ruta más corta
+        // Dijkstra
         redVial.calcularRutaMasCorta("INT-01", "INT-04");
-        redVial.calcularRutaMasCorta("INT-01", "INT-05");
+        //redVial.calcularRutaMasCorta("INT-01", "INT-05");
 
         System.out.println();
 
         // MÓDULO 2: Despacho de Emergencias
-        // TDA: ColaPrioridad
-        // Usa modelos Emergencia y UnidadEmergencia
 
         System.out.println(">>> MÓDULO 2: Despacho de Emergencias <<<");
         DespachoEmergencias despacho = new DespachoEmergencias(10);
 
-        // Reportar emergencias (construye objetos Emergencia internamente)
+        // Reportar emergencias
         despacho.reportarEmergencia("Accidente leve en Av. Corrientes", 3,  "INT-01", "08:15");
         despacho.reportarEmergencia("Incendio en edificio",              9,  "INT-03", "08:20");
         despacho.reportarEmergencia("Choque múltiple en autopista",      7,  "INT-02", "08:22");
@@ -75,7 +68,7 @@ public class Main {
 
         despacho.mostrarTodasLasEmergencias();
 
-        // Crear unidades de emergencia y despachar
+        // Crear unidades de emergencia
         UnidadEmergencia ambulancia = new UnidadEmergencia("AMB-01", UnidadEmergencia.Tipo.AMBULANCIA);
         UnidadEmergencia bomberoU   = new UnidadEmergencia("BOM-01", UnidadEmergencia.Tipo.BOMBEROS);
 
@@ -88,25 +81,21 @@ public class Main {
 
         System.out.println();
 
-        // ─────────────────────────────────────────────────────────
-        // MÓDULO 3: Gestor de Dispositivos (Diccionario)
-        // TDA: Diccionario<Dispositivo>
-        // Basado en diccionarios/Diccionario.java de clase
-        // Semáforo y Cámara heredan de Dispositivo (herencia)
-        // ─────────────────────────────────────────────────────────
+        // MÓDULO 3: Gestor de Dispositivos
+
         System.out.println(">>> MÓDULO 3: Gestor de Dispositivos <<<");
         GestorDispositivos gestorDispositivos = new GestorDispositivos(20);
 
-        // Registrar Semáforos (heredan Dispositivo)
+        // Registrar Semáforos
         gestorDispositivos.registrar(new Semaforo("SEM-001", "Av. Corrientes y 9 de Julio", 30));
         gestorDispositivos.registrar(new Semaforo("SEM-002", "Av. Santa Fe y Pueyrredón",   45));
         gestorDispositivos.registrar(new Semaforo("SEM-003", "Av. Cabildo y Juramento",     60));
 
-        // Registrar Cámaras (heredan Dispositivo)
+        // Registrar Cámaras
         gestorDispositivos.registrar(new Camara("CAM-010", "Autopista 25 de Mayo km 3",    "1080p"));
         gestorDispositivos.registrar(new Camara("CAM-011", "Av. General Paz y Rivadavia",  "4K"));
 
-        // Intento de código duplicado (debe rechazarlo)
+        // Intento de código duplicado
         gestorDispositivos.registrar(new Semaforo("SEM-001", "Otro lugar", 20));
 
         gestorDispositivos.mostrarTodos();
@@ -118,12 +107,12 @@ public class Main {
         System.out.println("\nModificando estado de SEM-001 a FALLA:");
         gestorDispositivos.modificarEstado("SEM-001", Dispositivo.Estado.FALLA);
 
-        // Cambiar luz de semáforo (método propio de Semaforo)
+        // Cambiar luz de semáforo
         System.out.println("\nCambiando luz de SEM-002:");
         gestorDispositivos.cambiarLuzSemaforo("SEM-002");
         gestorDispositivos.cambiarLuzSemaforo("SEM-002");
 
-        // Activar grabación de cámara (método propio de Camara)
+        // Activar grabación de cámara
         System.out.println("\nActivando grabación de CAM-010:");
         gestorDispositivos.activarGrabacion("CAM-010");
 
@@ -133,12 +122,8 @@ public class Main {
 
         System.out.println();
 
-        // ─────────────────────────────────────────────────────────
         // MÓDULO 4: Organización Territorial (Árbol General N-ario)
-        // TDA: ArbolGeneral<String>
-        // Jerarquía: Ciudad → Comunas → Barrios → Manzanas
-        // Basado en PDF clase8Mayo_TDA_Arbol.pdf
-        // ─────────────────────────────────────────────────────────
+
         System.out.println(">>> MÓDULO 4: Organización Territorial <<<");
         OrganizacionTerritorial territorio = new OrganizacionTerritorial();
 
@@ -162,7 +147,7 @@ public class Main {
         territorio.agregarManzana("Palermo",     "C");
         territorio.agregarManzana("Belgrano",    "D");
 
-        // Mostrar estructura completa (árbol con indentación)
+        // Mostrar estructura completa
         territorio.mostrarEstructura();
 
         // Mostrar por niveles
@@ -176,16 +161,13 @@ public class Main {
 
         System.out.println();
 
-        // ─────────────────────────────────────────────────────────
-        // MÓDULO 5: Flujo Vehicular (Cola FIFO dentro de Interseccion)
-        // TDA: Cola<Vehiculo> gestionada por el modelo Interseccion
-        // Usa los modelos Vehiculo e Interseccion según el UML propuesto
-        // ─────────────────────────────────────────────────────────
+        // MÓDULO 5: Flujo Vehicular
+
         System.out.println(">>> MÓDULO 5: Flujo Vehicular <<<");
         FlujoVehicular flujo1 = new FlujoVehicular(plazaCentral);   // INT-01
         FlujoVehicular flujo3 = new FlujoVehicular(comisaria);      // INT-03
 
-        // Llegada de vehículos (objetos Vehiculo con patente y tipo)
+        // Llegada de vehículos
         flujo1.llegadaVehiculo(new Vehiculo("AB123CD", Vehiculo.Tipo.AUTO));
         flujo1.llegadaVehiculo(new Vehiculo("EF456GH", Vehiculo.Tipo.CAMION));
         flujo1.llegadaVehiculo(new Vehiculo("IJ789KL", Vehiculo.Tipo.AUTO));

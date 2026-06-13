@@ -1,8 +1,6 @@
 package modelo;
 
 // Calle: arista de la red vial
-// Atributos: nombre, distancia, intersecciones (según UML propuesto)
-// Método: conectarInterseccion()
 
 public class Calle {
 
@@ -16,11 +14,11 @@ public class Calle {
         this.distancia = distancia;
     }
 
-    // conectarInterseccion() según el UML propuesto
+    // conectarInterseccion()
     public void conectarInterseccion(Interseccion a, Interseccion b) {
         this.extremoA = a;
         this.extremoB = b;
-        System.out.println("Intersecciones conectadas por la calle " + nombre);
+        //System.out.println("Intersecciones conectadas por la calle " + nombre);
     }
 
     public void mostrarCalle(){

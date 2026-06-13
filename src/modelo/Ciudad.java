@@ -1,8 +1,6 @@
 package modelo;
 
 // Ciudad: raíz de la organización territorial
-// Atributos: nombre, comunas (según UML propuesto)
-// Métodos: agregarComunas(), buscarComuna()
 
 public class Ciudad {
 
@@ -17,7 +15,6 @@ public class Ciudad {
         this.cantComunas = 0;
     }
 
-    // agregarComunas() según el UML propuesto
     public boolean agregarComunas(Comuna comuna) {
         if (cantComunas == MAX_COMUNAS) {
             System.out.println("Ciudad " + nombre + ": máximo de comunas alcanzado.");
@@ -28,7 +25,6 @@ public class Ciudad {
         return true;
     }
 
-    // buscarComuna() según el UML propuesto
     public Comuna buscarComuna(String nombreComuna) {
         for (int i = 0; i < cantComunas; i++) {
             if (comunas[i].nombre.equalsIgnoreCase(nombreComuna)) {
