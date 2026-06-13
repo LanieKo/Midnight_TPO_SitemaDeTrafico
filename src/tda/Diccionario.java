@@ -1,8 +1,6 @@
 package tda;
 
-// TDA Diccionario con clave String - basado en diccionarios/Diccionario.java visto en clase
-// Permite recuperar o modificar el estado de un dispositivo por su código único
-// La diferencia respecto al de clase: la clave es String (código de dispositivo)
+// TDA Diccionario con clave String
 public class Diccionario<V> implements IDiccionario<V> {
     // Clase interna Dato, equivalente a la de diccionarios/Dato.java
     private class Dato {
@@ -43,7 +41,7 @@ public class Diccionario<V> implements IDiccionario<V> {
         return -1;
     }
 
-    // Inserta clave-valor. No permite duplicados (igual que en clase)
+    // Inserta clave-valor. No permite duplicados
     public boolean insertar(String clave, V valor) {
         if (cantidad == dimension) {
             System.out.println("Diccionario lleno: clave no agregada.");
@@ -58,7 +56,7 @@ public class Diccionario<V> implements IDiccionario<V> {
         return false;
     }
 
-    // Recupera el valor por clave (O(n) en el peor caso - como en la materia)
+    // Recupera el valor por clave (O(n) en el peor caso
     public V recuperarValor(String clave) {
         int posicion = existe(clave);
         if (posicion != -1) {
@@ -68,7 +66,7 @@ public class Diccionario<V> implements IDiccionario<V> {
         return null;
     }
 
-    // Modifica el valor de una clave existente (igual que en clase)
+    // Modifica el valor de una clave existente
     public boolean modificar(String clave, V valor) {
         int posicion = existe(clave);
         if (posicion != -1) {
@@ -79,7 +77,7 @@ public class Diccionario<V> implements IDiccionario<V> {
         return false;
     }
 
-    // Elimina por clave corriendo elementos (igual que en clase)
+    // Elimina por clave corriendo elementos
     public boolean eliminar(String clave) {
         int posicion = existe(clave);
         if (posicion == -1) {

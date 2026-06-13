@@ -1,8 +1,7 @@
 package modelo;
 
-// Cámara: hereda de Dispositivo (ver UML: Dispositivo → hereda en → Semáforo y Cámara)
-// Atributos propios: resolucion
-// Métodos propios: grabar()
+// Cámara: hereda de Dispositivo
+
 public class Camara extends Dispositivo {
 
     private String resolucion;
@@ -14,7 +13,6 @@ public class Camara extends Dispositivo {
         this.grabando = false;
     }
 
-    // grabar() según el UML propuesto
     public void grabar() {
         if (estado == Estado.ACTIVO) {
             grabando = true;

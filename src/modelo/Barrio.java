@@ -1,8 +1,7 @@
 package modelo;
 
 // Barrio: subdivisión de una Comuna
-// Atributos: nombre, manzanas (según UML propuesto)
-// Método: agregarManzana()
+
 public class Barrio {
 
     private String nombre;
@@ -16,7 +15,6 @@ public class Barrio {
         this.cantManzanas = 0;
     }
 
-    // agregarManzana() según el UML propuesto
     public boolean agregarManzana(Manzana manzana) {
         if (cantManzanas == MAX_MANZANAS) {
             System.out.println("Barrio " + nombre + ": máximo de manzanas alcanzado.");

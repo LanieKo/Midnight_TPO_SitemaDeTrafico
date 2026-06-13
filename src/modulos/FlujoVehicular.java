@@ -4,10 +4,7 @@ import modelo.Interseccion;
 import modelo.Vehiculo;
 
 // MÓDULO 5 - Flujo Vehicular en Intersecciones
-// TDA utilizado: Cola FIFO (Cola<Vehiculo>) - gestionada dentro del modelo Interseccion
-// Los vehículos se liberan según el orden en que llegaron (FIFO estricto)
-// Usa los modelos Interseccion y Vehiculo según el UML propuesto
-// Interseccion ya contiene la Cola<Vehiculo> y sus métodos agregarVehiculo/liberarVehiculo/tomarCalle
+
 public class FlujoVehicular {
 
     private Interseccion interseccion;
@@ -39,5 +36,7 @@ public class FlujoVehicular {
         interseccion.mostrarCola();
     }
 
-    public Interseccion getInterseccion() { return interseccion; }
+    public Interseccion getInterseccion() {
+        return interseccion;
+    }
 }

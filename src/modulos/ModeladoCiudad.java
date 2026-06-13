@@ -5,10 +5,7 @@ import modelo.Interseccion;
 import modelo.Calle;
 
 // MÓDULO 1 - Modelado de la Ciudad
-// TDA utilizado: Grafo con Matriz de Adyacencia Ponderada (GrafoPonderado)
-// Basado en grafo1/GrafoMatrizAdyacencia.java de la materia
-// Vértices: objetos Interseccion | Aristas: objetos Calle con distancia
-// Permite: BFS para verificar rutas y Dijkstra para ruta más corta
+
 public class ModeladoCiudad {
 
     private GrafoPonderado<String> grafoCiudad;
@@ -32,7 +29,7 @@ public class ModeladoCiudad {
         grafoCiudad.insertarVertice(interseccion.getId());
         intersecciones[cantIntersecciones] = interseccion;
         cantIntersecciones++;
-        System.out.println("Intersección registrada: " + interseccion);
+        //System.out.println("Intersección registrada: " + interseccion);
     }
 
     // Registra una calle (arista) entre dos intersecciones existentes
@@ -54,7 +51,7 @@ public class ModeladoCiudad {
     public boolean existeRuta(String idOrigen, String idDestino) {
         boolean existe = grafoCiudad.existeRuta(idOrigen, idDestino);
         if (existe) {
-            System.out.println("Existe ruta entre " + idOrigen + " y " + idDestino + ".");
+            System.out.println("\nExiste ruta entre " + idOrigen + " y " + idDestino + ".");
         } else {
             System.out.println("No existe ruta entre " + idOrigen + " y " + idDestino + ".");
         }

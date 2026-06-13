@@ -3,8 +3,6 @@ package modelo;
 import tda.Cola;
 
 // Interseccion: nodo de la red vial
-// Atributos: calleA, calleB, vehiculosEnEspera (según UML propuesto)
-// Métodos: agregarVehiculo(), liberarVehiculo(), tomarCalle()
 // Los vehículos se administran en una Cola FIFO (orden de llegada)
 public class Interseccion {
 
@@ -18,11 +16,9 @@ public class Interseccion {
         this.vehiculosEnEspera = new Cola<>();
     }
 
-    // agregarVehiculo() según el UML propuesto
     public void agregarVehiculo(Vehiculo v) {
         vehiculosEnEspera.encolar(v);
-        System.out.println("Vehículo " + v + " llegó a " + nombre
-                + " | En espera: " + vehiculosEnEspera.tamanio());
+        //System.out.println("Vehículo " + v + " llegó a " + nombre + " | En espera: " + vehiculosEnEspera.tamanio());
     }
 
     // liberarVehiculo() según el UML propuesto - FIFO estricto
@@ -32,12 +28,11 @@ public class Interseccion {
             return null;
         }
         Vehiculo v = vehiculosEnEspera.desencolar();
-        System.out.println("Vehículo " + v + " liberado de " + nombre
-                + " | Restantes: " + vehiculosEnEspera.tamanio());
+        System.out.println("Vehículo " + v + " liberado de " + nombre  + " | Restantes: " + vehiculosEnEspera.tamanio());
         return v;
     }
 
-    // tomarCalle() según el UML propuesto - informa la calle que toma el próximo vehículo
+    // informa la calle que toma el próximo vehículo
     public void tomarCalle(String nombreCalle) {
         Vehiculo proximo = vehiculosEnEspera.recuperarFrente();
         if (proximo != null) {

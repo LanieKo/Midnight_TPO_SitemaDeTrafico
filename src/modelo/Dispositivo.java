@@ -1,8 +1,6 @@
 package modelo;
 
 // Clase base para dispositivos urbanos (semáforos y cámaras)
-// Identificado por codigoUnico → se indexa en el Diccionario del sistema
-// Semáforo y Cámara heredan de esta clase (ver UML: Dispositivo → hereda en → Semáforo y Cámara)
 
 public abstract class Dispositivo implements IGestionable {
 
@@ -21,11 +19,16 @@ public abstract class Dispositivo implements IGestionable {
         this.estado = Estado.ACTIVO;
     }
 
-    public String getCodigoUnico() { return codigoUnico; }
-    public Estado getEstado()      { return estado; }
-    public String getUbicacion()   { return ubicacion; }
+    public String getCodigoUnico() {
+        return codigoUnico;
+    }
+    public Estado getEstado()      {
+        return estado;
+    }
+    public String getUbicacion()   {
+        return ubicacion;
+    }
 
-    // modificarEstado() y consultarEstado() según el UML propuesto
     public void modificarEstado(Estado nuevoEstado) {
         this.estado = nuevoEstado;
     }
