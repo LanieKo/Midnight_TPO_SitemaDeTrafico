@@ -3,6 +3,7 @@ package modelo;
 // Ciudad: raíz de la organización territorial
 // Atributos: nombre, comunas (según UML propuesto)
 // Métodos: agregarComunas(), buscarComuna()
+
 public class Ciudad {
 
     private String nombre;
@@ -30,17 +31,11 @@ public class Ciudad {
     // buscarComuna() según el UML propuesto
     public Comuna buscarComuna(String nombreComuna) {
         for (int i = 0; i < cantComunas; i++) {
-            if (comunas[i].getNombre().equalsIgnoreCase(nombreComuna)) {
+            if (comunas[i].nombre.equalsIgnoreCase(nombreComuna)) {
                 return comunas[i];
             }
         }
         return null;
     }
 
-    public String getNombre()   { return nombre; }
-    public int getCantComunas() { return cantComunas; }
-    public Comuna[] getComunas(){ return comunas; }
-
-    @Override
-    public String toString() { return "Ciudad " + nombre; }
 }

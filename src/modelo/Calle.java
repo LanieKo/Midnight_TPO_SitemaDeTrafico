@@ -3,10 +3,11 @@ package modelo;
 // Calle: arista de la red vial
 // Atributos: nombre, distancia, intersecciones (según UML propuesto)
 // Método: conectarInterseccion()
+
 public class Calle {
 
     private String nombre;
-    private int distancia;        // en metros
+    public int distancia;        // en metros
     private Interseccion extremoA;
     private Interseccion extremoB;
 
@@ -19,20 +20,13 @@ public class Calle {
     public void conectarInterseccion(Interseccion a, Interseccion b) {
         this.extremoA = a;
         this.extremoB = b;
-        System.out.println("Calle '" + nombre + "' conecta: "
-                + a.getNombre() + " <-> " + b.getNombre()
-                + " (" + distancia + "m)");
+        System.out.println("Intersecciones conectadas por la calle " + nombre);
     }
 
-    public String getNombre()          { return nombre; }
-    public int getDistancia()          { return distancia; }
-    public Interseccion getExtremoA()  { return extremoA; }
-    public Interseccion getExtremoB()  { return extremoB; }
+    public void mostrarCalle(){
+        System.out.println("Calle : " + nombre);
+        System.out.println("Distancia : " + distancia );
 
-    @Override
-    public String toString() {
-        String aStr = (extremoA != null) ? extremoA.getNombre() : "?";
-        String bStr = (extremoB != null) ? extremoB.getNombre() : "?";
-        return "'" + nombre + "' [" + aStr + " <-> " + bStr + ", " + distancia + "m]";
     }
+
 }

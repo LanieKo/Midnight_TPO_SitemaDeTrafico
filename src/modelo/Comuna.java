@@ -5,7 +5,7 @@ package modelo;
 // Métodos: agregarBarrios(), obtenerBarrios()
 public class Comuna {
 
-    private String nombre;
+    public String nombre;
     private Barrio[] barrios;
     private int cantBarrios;
     private static final int MAX_BARRIOS = 15;
@@ -32,9 +32,4 @@ public class Comuna {
         return barrios;
     }
 
-    public String getNombre()    { return nombre; }
-    public int getCantBarrios()  { return cantBarrios; }
-
-    @Override
-    public String toString() { return "Comuna " + nombre; }
 }

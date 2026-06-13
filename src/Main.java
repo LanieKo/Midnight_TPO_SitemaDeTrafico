@@ -5,7 +5,6 @@ import modulos.OrganizacionTerritorial;
 import modulos.FlujoVehicular;
 import modelo.*;
 
-// ============================================================
 // TRABAJO PRÁCTICO OBLIGATORIO - Programación 2 - 2026
 // "Midnight" - Sistema Inteligente de Tráfico y Emergencias
 // Alternativa B
@@ -60,11 +59,10 @@ public class Main {
 
         System.out.println();
 
-        // ─────────────────────────────────────────────────────────
         // MÓDULO 2: Despacho de Emergencias
         // TDA: ColaPrioridad
         // Usa modelos Emergencia y UnidadEmergencia
-        // ─────────────────────────────────────────────────────────
+
         System.out.println(">>> MÓDULO 2: Despacho de Emergencias <<<");
         DespachoEmergencias despacho = new DespachoEmergencias(10);
 
@@ -214,8 +212,5 @@ public class Main {
         // Intentar liberar de una cola vacía
         flujo3.liberarVehiculo();
 
-        System.out.println("\n=======================================================");
-        System.out.println("           FIN DE LA DEMOSTRACIÓN - ETAPA 2");
-        System.out.println("=======================================================");
     }
 }

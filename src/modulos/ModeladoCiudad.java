@@ -47,7 +47,7 @@ public class ModeladoCiudad {
         if (a != null && b != null) {
             calle.conectarInterseccion(a, b);
         }
-        grafoCiudad.insertarArista(idOrigen, idDestino, calle.getDistancia());
+        grafoCiudad.insertarArista(idOrigen, idDestino, calle.distancia);
     }
 
     // BFS: verifica si existe alguna ruta entre dos intersecciones

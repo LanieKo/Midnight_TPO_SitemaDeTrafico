@@ -3,13 +3,14 @@ package modelo;
 // Clase base para dispositivos urbanos (semáforos y cámaras)
 // Identificado por codigoUnico → se indexa en el Diccionario del sistema
 // Semáforo y Cámara heredan de esta clase (ver UML: Dispositivo → hereda en → Semáforo y Cámara)
+
 public abstract class Dispositivo implements IGestionable {
 
     public enum Estado { ACTIVO, INACTIVO, FALLA }
 
-    private String codigoUnico;   // clave en el Diccionario
-    private Estado estado;
-    private String ubicacion;
+    protected String codigoUnico;   // clave en el Diccionario
+    protected Estado estado;
+    protected String ubicacion;
 
     public Dispositivo(String codigoUnico, String ubicacion) {
         if (codigoUnico == null || codigoUnico.isEmpty()) {

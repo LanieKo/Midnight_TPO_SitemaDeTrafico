@@ -16,26 +16,17 @@ public class Camara extends Dispositivo {
 
     // grabar() según el UML propuesto
     public void grabar() {
-        if (getEstado() == Estado.ACTIVO) {
+        if (estado == Estado.ACTIVO) {
             grabando = true;
-            System.out.println("Cámara " + getCodigoUnico() + " → iniciando grabación a " + resolucion);
+            System.out.println("Cámara " + codigoUnico + " -> iniciando grabación a " + resolucion);
         } else {
-            System.out.println("Cámara " + getCodigoUnico() + " no puede grabar: estado " + getEstado());
+            System.out.println("Cámara " + codigoUnico + " no puede grabar: estado " + estado);
         }
     }
 
     public void detenerGrabacion() {
         grabando = false;
-        System.out.println("Cámara " + getCodigoUnico() + " → grabación detenida.");
+        System.out.println("Cámara " + codigoUnico + " → grabación detenida.");
     }
 
-    public boolean isGrabando()   { return grabando; }
-    public String getResolucion() { return resolucion; }
-
-    @Override
-    public String toString() {
-        return "CAMARA | " + super.toString()
-                + " | Resolución: " + resolucion
-                + " | Grabando: " + grabando;
-    }
 }
