@@ -13,7 +13,7 @@ Alternativa B — Sistema Inteligente de Tráfico y Emergencias
 ### Estructuras de datos utilizadas:
 - **Grafo Ponderado** (GrafoPonderado) : representa la red vial de la ciudad, con intersecciones como nodos y calles como aristas con peso (distancia/tiempo)
 - **Cola de Prioridad** (ColaPrioridad) : gestiona el despacho de unidades de emergencia según nivel de urgencia
-- **Diccionario ** (Diccionario) : permite acceso rápido a dispositivos, intersecciones y vehículos por clave
+- **Diccionario** (Diccionario) : permite acceso rápido a dispositivos, intersecciones y vehículos por clave
 - **Árbol General** (ArbolGeneral) : modela la jerarquía territorial: Ciudad → Comuna → Barrio → Manzana
 - **Cola FIFO** (Cola) : administra la cola de vehículos en intersecciones con semáforo
 
@@ -61,4 +61,4 @@ Main
 
 ### Actividades realizadas por cada integrante:
 - **Nayla Dinara Granelli:** se dedicó a armar el esqueleto del código
-- **Romina Analía Colqui:** se dedicó a la resolución de los errores
+- **Romina Analía Colqui:** se dedicó a la resolución de los errores ,mejora de la salida por consola,  mejoró la organización de la información para facilitar la lectura. 
