@@ -1,8 +1,4 @@
-import modulos.ModeladoCiudad;
-import modulos.DespachoEmergencias;
-import modulos.GestorDispositivos;
-import modulos.OrganizacionTerritorial;
-import modulos.FlujoVehicular;
+import modulos.*;
 import modelo.*;
 
 // TRABAJO PRÁCTICO OBLIGATORIO - Programación 2 - 2026
@@ -11,6 +7,19 @@ import modelo.*;
 public class Main {
 
     public static void main(String[] args) {
+
+        Menu menu = new Menu(
+                redVial,
+                despacho,
+                gestorDispositivos,
+                territorio,
+                flujo1
+        );
+
+        menu.iniciar();
+
+
+
 
         System.out.println("=======================================================");
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
