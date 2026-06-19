@@ -24,7 +24,7 @@ public class DespachoEmergencias {
     // La Emergencia se construye con los datos y su gravedad define la prioridad
     public void reportarEmergencia(String descripcion, int gravedad, String ubicacion, String hora) {
         if (gravedad < 1 || gravedad > 10) {
-            System.out.println("Error: la gravedad debe estar entre 1 y 10.");
+            System.out.println("La gravedad debe estar entre 1 y 10.");
             return;
         }
         int id = contadorId++;
@@ -68,7 +68,9 @@ public class DespachoEmergencias {
         System.out.println("Próxima emergencia a atender: " + cola.frente());
     }
 
-    public int cantidadPendientes() { return cola.tamanio(); }
+    public int cantidadPendientes() {
+        return cola.tamanio();
+    }
 
     public void mostrarTodasLasEmergencias() {
         System.out.println("\n--- Estado actual del Despacho ---");
