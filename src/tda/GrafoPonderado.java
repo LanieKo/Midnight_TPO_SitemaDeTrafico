@@ -144,7 +144,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
     // ─── Dijkstra: ruta más corta (distancia mínima) ─────────────────────────
     // Algoritmo clásico con arreglos, sin importar librerías externas
     // Retorna el arreglo de distancias mínimas desde el origen
-    public int[] dijkstra(T origen) {
+    public int[] dijkstra(T origen) {  //Preguntar a la profe si lo dejamos
         int posOrigen = obtenerIndice(origen);
         if (posOrigen == -1) {
             System.out.println("Vértice origen no encontrado.");
