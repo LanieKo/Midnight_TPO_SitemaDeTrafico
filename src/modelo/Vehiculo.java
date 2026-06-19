@@ -4,7 +4,7 @@ package modelo;
 
 public class Vehiculo {
 
-    public enum Tipo { AUTO, MOTO, CAMION, AMBULANCIA, BOMBEROS }
+    public enum Tipo { AUTO, MOTO, CAMION, AMBULANCIA, BOMBEROS } //Preguntar si podemoas usar enum
 
     private String patente;
     private Tipo tipo;

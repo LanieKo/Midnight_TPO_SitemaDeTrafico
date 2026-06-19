@@ -11,7 +11,7 @@ import modelo.Manzana;
 
 public class OrganizacionTerritorial {
 
-    private ArbolGeneral<String> arbolTerritorial;
+    private ArbolGeneral<String> arbolTerritorial;  //Preguntar a la profe si sacamos <String>
     private Ciudad ciudad;
 
     public OrganizacionTerritorial() {
@@ -27,8 +27,8 @@ public class OrganizacionTerritorial {
     }
 
     // Agrega una comuna (reemplaza "Zona" del borrador) como hijo de la raíz
-    public NodoGeneral<String> agregarComuna(String nombreComuna) {
-        NodoGeneral<String> raiz = arbolTerritorial.getRaiz();
+    public NodoGeneral<String> agregarComuna(String nombreComuna) {   //Preguntar a la profe si sacamos <String>
+        NodoGeneral<String> raiz = arbolTerritorial.getRaiz();  //Preguntar a la profe si sacamos <String>
         if (raiz == null) {
             System.out.println("Error: primero debe crear la ciudad.");
             return null;
@@ -47,8 +47,8 @@ public class OrganizacionTerritorial {
     }
 
     // Agrega un barrio a una comuna existente - buscarComuna() + agregarBarrios()
-    public NodoGeneral<String> agregarBarrio(String nombreComuna, String nombreBarrio) {
-        NodoGeneral<String> nodoComuna = arbolTerritorial.buscar(nombreComuna);
+    public NodoGeneral<String> agregarBarrio(String nombreComuna, String nombreBarrio) {  //Preguntar a la profe si sacamos <String>
+        NodoGeneral<String> nodoComuna = arbolTerritorial.buscar(nombreComuna);   //Preguntar a la profe si sacamos <String>
         if (nodoComuna == null) {
             System.out.println("Comuna no encontrada: " + nombreComuna);
             return null;
@@ -70,7 +70,7 @@ public class OrganizacionTerritorial {
 
     // Agrega una manzana a un barrio existente - agregarManzana() del modelo Barrio
     public void agregarManzana(String nombreBarrio, String codigoManzana) {
-        NodoGeneral<String> nodoBarrio = arbolTerritorial.buscar(nombreBarrio);
+        NodoGeneral<String> nodoBarrio = arbolTerritorial.buscar(nombreBarrio);   //Preguntar a la profe si sacamos <String>
         if (nodoBarrio == null) {
             System.out.println("Barrio no encontrado: " + nombreBarrio);
             return;
