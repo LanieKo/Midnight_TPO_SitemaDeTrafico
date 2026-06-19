@@ -39,4 +39,6 @@ public class FlujoVehicular {
     public Interseccion getInterseccion() {
         return interseccion;
     }
+
+
 }
