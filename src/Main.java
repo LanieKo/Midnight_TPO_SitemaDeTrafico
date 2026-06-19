@@ -8,18 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu{
-                redVial,
-                despacho,
-                gestorDispositivos,
-                territorio,
-                flujo1};
-
-        menu.iniciar();
-
-
-
-
         System.out.println("=======================================================");
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
         System.out.println("=======================================================\n");
