@@ -32,7 +32,7 @@ public class Main {
 
         // Crear objetos Calle y conectar intersecciones
         redVial.agregarCalle(new Calle("Av. Corrientes",   500), "INT-01", "INT-02");
-        redVial.agregarCalle(new Calle("Av. 9 de Julio",   300), "INT-01", "INT-03");
+        redVial.agregarCalle(new Calle("Av. 9 de Julio",   350), "INT-01", "INT-03");
         redVial.agregarCalle(new Calle("Calle Tucumán",    200), "INT-02", "INT-04");
         redVial.agregarCalle(new Calle("Av. Santa Fe",     400), "INT-03", "INT-04");
         redVial.agregarCalle(new Calle("Av. de Mayo",      150), "INT-04", "INT-05");
@@ -88,7 +88,11 @@ public class Main {
         gestorDispositivos.registrar(new Semaforo("SEM-003", "Av. Cabildo y Juramento",     60));
 
         // Registrar Cámaras
+<<<<<<< Updated upstream
         gestorDispositivos.registrar(new Camara("CAM-010", "Autopista 25 de Mayo km 3",    "1080p"));
+=======
+        gestorDispositivos.registrar(new Camara("CAM-010", "Autopista 25 de Mayo km 3",    "1080p"));  //Preguntar si dejamos las resoluciones
+>>>>>>> Stashed changes
         gestorDispositivos.registrar(new Camara("CAM-011", "Av. General Paz y Rivadavia",  "4K"));
 
         // Intento de código duplicado
