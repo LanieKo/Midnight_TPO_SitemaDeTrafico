@@ -161,13 +161,13 @@ public class Main {
         FlujoVehicular flujo3 = new FlujoVehicular(comisaria);      // INT-03
 
         // Llegada de vehículos
-        flujo1.llegadaVehiculo(new Vehiculo("AB123CD", Vehiculo.Tipo.AUTO));
-        flujo1.llegadaVehiculo(new Vehiculo("EF456GH", Vehiculo.Tipo.CAMION));
-        flujo1.llegadaVehiculo(new Vehiculo("IJ789KL", Vehiculo.Tipo.AUTO));
-        flujo1.llegadaVehiculo(new Vehiculo("AMB-001", Vehiculo.Tipo.AMBULANCIA));
+        flujo1.llegadaVehiculo(new Vehiculo("ACD 123", Vehiculo.Tipo.AUTO));
+        flujo1.llegadaVehiculo(new Vehiculo("AI 456 GH", Vehiculo.Tipo.CAMION));
+        flujo1.llegadaVehiculo(new Vehiculo("AC 789 KL", Vehiculo.Tipo.AUTO));
+        flujo1.llegadaVehiculo(new Vehiculo("AH 970 KJ", Vehiculo.Tipo.AMBULANCIA));
 
-        flujo3.llegadaVehiculo(new Vehiculo("QR345ST", Vehiculo.Tipo.MOTO));
-        flujo3.llegadaVehiculo(new Vehiculo("UV678WX", Vehiculo.Tipo.AUTO));
+        flujo3.llegadaVehiculo(new Vehiculo("QRS 345", Vehiculo.Tipo.MOTO));
+        flujo3.llegadaVehiculo(new Vehiculo("UVC 655", Vehiculo.Tipo.AUTO));
 
         flujo1.mostrarCola();
         flujo3.mostrarCola();
@@ -197,6 +197,5 @@ public class Main {
         );
 
         menu.iniciar();
-
     }
 }
