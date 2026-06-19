@@ -12,7 +12,7 @@ public abstract class Dispositivo implements IGestionable {
 
     public Dispositivo(String codigoUnico, String ubicacion) {
         if (codigoUnico == null || codigoUnico.isEmpty()) {
-            throw new IllegalArgumentException("El código del dispositivo no puede estar vacío.");
+            System.out.println("El código del dispositivo no puede estar vacío.");
         }
         this.codigoUnico = codigoUnico;
         this.ubicacion = ubicacion;

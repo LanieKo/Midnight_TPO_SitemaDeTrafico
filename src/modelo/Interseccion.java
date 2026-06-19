@@ -59,7 +59,7 @@ public class Interseccion {
     }
 
     @Override
-    public String toString() {
+    public String toString() { // Preguntar si lo dejamos
         return nombre + " (" + id + ")";
     }
 }
