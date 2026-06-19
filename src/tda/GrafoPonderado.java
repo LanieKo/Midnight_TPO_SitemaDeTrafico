@@ -160,7 +160,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
 
         // Inicializar distancias en "infinito"
         for (int i = 0; i < cantidad; i++) {
-            distancia[i] = Integer.MAX_VALUE;
+            distancia[i] = 1000000;
         }
         distancia[posOrigen] = 0;
 
@@ -168,7 +168,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
             // Buscar el vértice no procesado con menor distancia
             int u = -1;
             for (int i = 0; i < cantidad; i++) {
-                if (!procesado[i] && distancia[i] != Integer.MAX_VALUE) {
+                if (!procesado[i] && distancia[i] != 1000000) {
                     if (u == -1 || distancia[i] < distancia[u]) {
                         u = i;
                     }
@@ -200,7 +200,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
             System.out.println("Vértice destino no encontrado.");
             return;
         }
-        if (distancias[posDestino] == Integer.MAX_VALUE) {
+        if (distancias[posDestino] == 1000000) {
             System.out.println("No existe ruta entre " + origen + " y " + destino + ".");
         } else {
             System.out.println("Ruta más corta de " + origen + " a " + destino

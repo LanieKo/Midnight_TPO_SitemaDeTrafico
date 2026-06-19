@@ -13,8 +13,6 @@ public class Main {
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
         System.out.println("=======================================================\n");
 
-        // MÓDULO 1: Red vial
-
         System.out.println(">>> MÓDULO 1: Modelado de la Ciudad <<<");
         ModeladoCiudad redVial = new ModeladoCiudad(8, false);
 
@@ -45,12 +43,10 @@ public class Main {
         //redVial.existeRuta("INT-02", "INT-05");
 
         // Dijkstra
-        redVial.calcularRutaMasCorta("INT-01", "INT-04");
+        redVial.calcularRutaMasCorta("INT-04", "INT-01");
         //redVial.calcularRutaMasCorta("INT-01", "INT-05");
 
         System.out.println();
-
-        // MÓDULO 2: Despacho de Emergencias
 
         System.out.println(">>> MÓDULO 2: Despacho de Emergencias <<<");
         DespachoEmergencias despacho = new DespachoEmergencias(10);
@@ -74,8 +70,6 @@ public class Main {
 
 
         System.out.println();
-
-        // MÓDULO 3: Gestor de Dispositivos
 
         System.out.println(">>> MÓDULO 3: Gestor de Dispositivos <<<");
         GestorDispositivos gestorDispositivos = new GestorDispositivos(20);
@@ -115,8 +109,6 @@ public class Main {
 
         System.out.println();
 
-        // MÓDULO 4: Organización Territorial (Árbol General N-ario)
-
         System.out.println(">>> MÓDULO 4: Organización Territorial <<<");
         OrganizacionTerritorial territorio = new OrganizacionTerritorial();
 
@@ -154,49 +146,17 @@ public class Main {
 
         System.out.println();
 
-        // MÓDULO 5: Flujo Vehicular
-
         System.out.println(">>> MÓDULO 5: Flujo Vehicular <<<");
-        FlujoVehicular flujo1 = new FlujoVehicular(plazaCentral);   // INT-01
-        FlujoVehicular flujo3 = new FlujoVehicular(comisaria);      // INT-03
-
-        // Llegada de vehículos
-        flujo1.llegadaVehiculo(new Vehiculo("AB123CD", Vehiculo.Tipo.AUTO));
-        flujo1.llegadaVehiculo(new Vehiculo("EF456GH", Vehiculo.Tipo.CAMION));
-        flujo1.llegadaVehiculo(new Vehiculo("IJ789KL", Vehiculo.Tipo.AUTO));
-        flujo1.llegadaVehiculo(new Vehiculo("AMB-001", Vehiculo.Tipo.AMBULANCIA));
-
-        flujo3.llegadaVehiculo(new Vehiculo("QR345ST", Vehiculo.Tipo.MOTO));
-        flujo3.llegadaVehiculo(new Vehiculo("UV678WX", Vehiculo.Tipo.AUTO));
-
-        flujo1.mostrarCola();
-        flujo3.mostrarCola();
-
-        // Ver próximo con destino indicado
-        flujo1.verProximo("Av. Corrientes");
-
-        // Liberar vehículos (FIFO)
-        System.out.println("\nLiberando vehículos de Plaza Central (INT-01):");
-        flujo1.liberarVehiculo();
-        flujo1.liberarVehiculo();
-        flujo1.mostrarCola();
-
-        System.out.println("\nLiberando vehículos de Comisaría (INT-03):");
-        flujo3.liberarVehiculo();
-        flujo3.liberarVehiculo();
-        // Intentar liberar de una cola vacía
-        flujo3.liberarVehiculo();
+            // INT-03  //usar for (asignarle i en los numeros y en el lugar)
 
 
         Menu menu = new Menu(
                 redVial,
                 despacho,
                 gestorDispositivos,
-                territorio,
-                flujo1
+                territorio
         );
 
         menu.iniciar();
-
     }
 }
