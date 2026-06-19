@@ -60,5 +60,5 @@ Main
 [https://github.com/LanieKo/Midnight_TPO_SitemaDeTrafico](https://github.com/LanieKo/Midnight_TPO_SitemaDeTrafico)
 
 ### Actividades realizadas por cada integrante:
-- **Nayla Dinara Granelli:** se dedicó a armar el esqueleto del código
+- **Nayla Dinara Granelli:** se dedicó a armar el esqueleto del código, modificación de métodos y agregar comentario con preguntas sobre el código.
 - **Romina Analía Colqui:** se dedicó a la resolución de los errores ,mejora de la salida por consola,  mejoró la organización de la información para facilitar la lectura. 
