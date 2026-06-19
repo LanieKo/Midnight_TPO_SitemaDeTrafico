@@ -9,8 +9,6 @@ public class Menu {
     private GestorDispositivos gestor;
     private OrganizacionTerritorial territorio;
     private FlujoVehicular flujo;
-    private GestorDispositivos gestorDispositivos;
-
 
     public Menu(ModeladoCiudad redVial, DespachoEmergencias despacho, GestorDispositivos gestor, OrganizacionTerritorial territorio, FlujoVehicular flujo) {
         this.opcion = -1;
@@ -30,7 +28,7 @@ public class Menu {
             System.out.println("1. Modelado de ciudad");
             System.out.println("2. Emergencias");
             System.out.println("3. Dispositivos");
-            System.out.println("3. Territorio");
+            System.out.println("4. Territorio");
 
             System.out.println("0. Salir");
             opcion = teclado.nextInt();
@@ -43,7 +41,7 @@ public class Menu {
                 despacho.mostrarTodasLasEmergencias();
             } else if (opcion == 3) {
                 System.out.println("Dispositivos");
-                gestorDispositivos.mostrarTodos();
+                gestor.mostrarTodos();
             } else if (opcion == 4) {
                 territorio.mostrarEstructura();
                 territorio.mostrarPorNiveles();
