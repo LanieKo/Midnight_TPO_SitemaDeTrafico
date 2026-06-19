@@ -51,7 +51,6 @@ public class Main {
         redVial.agregarCalle(new Calle("Av. de Mayo",      150), "INT-04", "INT-05");
         redVial.agregarCalle(new Calle("Av. Rivadavia",    800), "INT-01", "INT-05");
 
-        redVial.mostrarRed();
 
         // BFS
         redVial.existeRuta("INT-01", "INT-04");
@@ -75,7 +74,6 @@ public class Main {
         despacho.reportarEmergencia("Corte de luz en semáforos",         4,  "INT-05", "08:25");
         despacho.reportarEmergencia("Heridos graves en colisión",        9,  "INT-04", "08:30");
 
-        despacho.mostrarTodasLasEmergencias();
 
         // Crear unidades de emergencia
         UnidadEmergencia ambulancia = new UnidadEmergencia("AMB-01", UnidadEmergencia.Tipo.AMBULANCIA);
@@ -86,7 +84,6 @@ public class Main {
         despacho.despacharSiguiente(bomberoU);     // gravedad 9 (segunda con igual prioridad)
         despacho.despacharSiguiente();             // gravedad 7
 
-        despacho.mostrarTodasLasEmergencias();
 
         System.out.println();
 
@@ -107,7 +104,6 @@ public class Main {
         // Intento de código duplicado
         gestorDispositivos.registrar(new Semaforo("SEM-001", "Otro lugar", 20));
 
-        gestorDispositivos.mostrarTodos();
 
         // Consultar y modificar estado
         System.out.println("\nConsultando estado de SEM-002:");
@@ -157,10 +153,10 @@ public class Main {
         territorio.agregarManzana("Belgrano",    "D");
 
         // Mostrar estructura completa
-        territorio.mostrarEstructura();
+        //territorio.mostrarEstructura();
 
         // Mostrar por niveles
-        territorio.mostrarPorNiveles();
+        //territorio.mostrarPorNiveles();
 
         // Buscar territorios
         territorio.buscarTerritorio("Palermo");
@@ -202,6 +198,7 @@ public class Main {
         flujo3.liberarVehiculo();
         // Intentar liberar de una cola vacía
         flujo3.liberarVehiculo();
+        menu.iniciar();
 
     }
 }
