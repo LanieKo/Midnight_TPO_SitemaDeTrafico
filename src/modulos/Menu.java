@@ -32,7 +32,7 @@ public class Menu {
             System.out.println("├─ (0). Salir");
             opcion = teclado.nextInt();
 
-            // Muestra de Resultados
+            // Muestra de Result    ados
             if (opcion == 1) {
                 System.out.println("--->| Modelado de Ciudad |");
                 redVial.mostrarRed();
@@ -51,7 +51,7 @@ public class Menu {
                 territorio.mostrarPorNiveles();
                 System.out.println("\n-------------------------------------------------------------");
             } else if (opcion == 0) {
-                System.out.println("\n-------------------------------------");
+                System.out.println("\n------------------------------");
                 System.out.println("Saliendo...");
             } else {
                 System.out.println("Opción inválida");
