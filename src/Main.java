@@ -13,8 +13,6 @@ public class Main {
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
         System.out.println("=======================================================\n");
 
-        // MÓDULO 1: Red vial
-
         System.out.println(">>> MÓDULO 1: Modelado de la Ciudad <<<");
         ModeladoCiudad redVial = new ModeladoCiudad(8, false);
 
@@ -45,12 +43,10 @@ public class Main {
         //redVial.existeRuta("INT-02", "INT-05");
 
         // Dijkstra
-        redVial.calcularRutaMasCorta("INT-01", "INT-04");
+        redVial.calcularRutaMasCorta("INT-04", "INT-01");
         //redVial.calcularRutaMasCorta("INT-01", "INT-05");
 
         System.out.println();
-
-        // MÓDULO 2: Despacho de Emergencias
 
         System.out.println(">>> MÓDULO 2: Despacho de Emergencias <<<");
         DespachoEmergencias despacho = new DespachoEmergencias(10);
@@ -74,8 +70,6 @@ public class Main {
 
 
         System.out.println();
-
-        // MÓDULO 3: Gestor de Dispositivos
 
         System.out.println(">>> MÓDULO 3: Gestor de Dispositivos <<<");
         GestorDispositivos gestorDispositivos = new GestorDispositivos(20);
@@ -115,8 +109,6 @@ public class Main {
 
         System.out.println();
 
-        // MÓDULO 4: Organización Territorial (Árbol General N-ario)
-
         System.out.println(">>> MÓDULO 4: Organización Territorial <<<");
         OrganizacionTerritorial territorio = new OrganizacionTerritorial();
 
@@ -153,8 +145,6 @@ public class Main {
         System.out.println("Total de territorios registrados: " + territorio.totalTerritorios());
 
         System.out.println();
-
-        // MÓDULO 5: Flujo Vehicular
 
         System.out.println(">>> MÓDULO 5: Flujo Vehicular <<<");
         FlujoVehicular flujo1 = new FlujoVehicular(plazaCentral);   // INT-01
