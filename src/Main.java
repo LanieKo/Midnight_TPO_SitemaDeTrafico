@@ -8,13 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu(
+        Menu menu = new Menu{
                 redVial,
                 despacho,
                 gestorDispositivos,
                 territorio,
-                flujo1
-        );
+                flujo1};
 
         menu.iniciar();
 

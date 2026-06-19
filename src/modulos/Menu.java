@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Menu {
     private Scanner teclado;
     int opcion;
-    private ModeladoCiudad redVial;
+    private ModeladoCiudad redVial ;
     private DespachoEmergencias despacho;
     private GestorDispositivos gestor;
     private OrganizacionTerritorial territorio;
@@ -44,4 +44,4 @@ public class Menu {
                 System.out.println("Opción inválida");
             }
         }
-    }
+    }}
