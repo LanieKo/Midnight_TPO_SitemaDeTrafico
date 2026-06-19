@@ -9,11 +9,11 @@ public class Menu {
     private GestorDispositivos gestor;
     private OrganizacionTerritorial territorio;
     private FlujoVehicular flujo;
+    private GestorDispositivos gestorDispositivos;
 
 
-
-    public Menu(ModeladoCiudad redVial,DespachoEmergencias despacho, GestorDispositivos gestor, OrganizacionTerritorial territorio, FlujoVehicular flujo) {
-        this.opcion= -1;
+    public Menu(ModeladoCiudad redVial, DespachoEmergencias despacho, GestorDispositivos gestor, OrganizacionTerritorial territorio, FlujoVehicular flujo) {
+        this.opcion = -1;
         this.teclado = new Scanner(System.in);
         this.redVial = redVial;
         this.despacho = despacho;
@@ -54,3 +54,5 @@ public class Menu {
             }
         }
     }
+
+}

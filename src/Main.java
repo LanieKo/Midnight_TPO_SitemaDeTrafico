@@ -8,18 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu(
-                redVial,
-                despacho,
-                gestorDispositivos,
-                territorio,
-                flujo1
-        );
-
-        menu.iniciar();
-
-
-
 
         System.out.println("=======================================================");
         System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
@@ -198,6 +186,16 @@ public class Main {
         flujo3.liberarVehiculo();
         // Intentar liberar de una cola vacía
         flujo3.liberarVehiculo();
+
+
+        Menu menu = new Menu(
+                redVial,
+                despacho,
+                gestorDispositivos,
+                territorio,
+                flujo1
+        );
+
         menu.iniciar();
 
     }
