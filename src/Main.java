@@ -8,12 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        System.out.println("=======================================================");
-        System.out.println("   MIDNIGHT ⧬ - SISTEMA INTELIGENTE DE TRÁFICO");
-        System.out.println("=======================================================\n");
-
-        System.out.println(">>> MÓDULO 1: Modelado de la Ciudad <<<");
         ModeladoCiudad redVial = new ModeladoCiudad(8, false);
 
         // Crear objetos Interseccion y agregarlos al grafo
