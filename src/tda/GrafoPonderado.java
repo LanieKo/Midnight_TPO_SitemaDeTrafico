@@ -9,6 +9,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
     private int cantidad;
     private int capacidad;
     private boolean dirigido;
+    private int[] anterior;
 
     @SuppressWarnings("unchecked")
     public GrafoPonderado(int capacidad, boolean dirigido) {
@@ -157,10 +158,12 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
 
         int[] distancia = new int[cantidad];
         boolean[] procesado = new boolean[cantidad];
+        anterior = new int[cantidad];
 
         // Inicializar distancias en "infinito"
         for (int i = 0; i < cantidad; i++) {
             distancia[i] = 1000000;
+            anterior[i] = -1;
         }
         distancia[posOrigen] = 0;
 
@@ -183,6 +186,7 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
                     int nuevaDist = distancia[u] + matriz[u][v];
                     if (nuevaDist < distancia[v]) {
                         distancia[v] = nuevaDist;
+                        anterior[v] = u;
                     }
                 }
             }
@@ -192,20 +196,48 @@ public class GrafoPonderado<T> implements IGrafoPonderado<T> {
 
     // Muestra la ruta más corta desde origen a destino
     public void mostrarRutaMasCorta(T origen, T destino) {
+
         int[] distancias = dijkstra(origen);
+
         if (distancias == null) return;
 
         int posDestino = obtenerIndice(destino);
+
         if (posDestino == -1) {
             System.out.println("Vértice destino no encontrado.");
             return;
         }
+
         if (distancias[posDestino] == 1000000) {
-            System.out.println("No existe ruta entre " + origen + " y " + destino + ".");
-        } else {
-            System.out.println("Ruta más corta de " + origen + " a " + destino
-                    + ": " + distancias[posDestino] + " unidades.");
+            System.out.println("No existe ruta entre "
+                    + origen + " y " + destino + ".");
+            return;
         }
+
+        int[] camino = new int[cantidad];
+        int tam = 0;
+
+        int actual = posDestino;
+
+        while (actual != -1) {
+            camino[tam++] = actual;
+            actual = anterior[actual];
+        }
+
+        System.out.println("\nRuta más corta:");
+
+        for (int i = tam - 1; i >= 0; i--) {
+
+            System.out.print(vertices[camino[i]]);
+
+            if (i > 0) {
+                System.out.print(" -> ");
+            }
+        }
+
+        System.out.println("\n");
+        System.out.println("Distancia total: "
+                + distancias[posDestino]);
     }
 
     public int getCantidad() {

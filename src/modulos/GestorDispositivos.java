@@ -30,6 +30,8 @@ public class GestorDispositivos {
         Dispositivo d = indiceDispositivos.recuperarValor(codigoUnico);
         if (d == null) {
             System.out.println("Dispositivo no encontrado: " + codigoUnico);
+        }else {
+            System.out.println(d);
         }
         return d;
     }
