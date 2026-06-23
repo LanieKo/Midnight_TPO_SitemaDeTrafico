@@ -71,29 +71,15 @@ public class Menu {
             // Opciones
 
             if (opcion == 1) {
-                teclado.nextLine(); // Limpiar el buffer
+                teclado.nextLine();
                 System.out.print("Nombre comuna: ");
                 String comunaInput = teclado.nextLine();
 
                 if (comunaInput.equals("")) {
                     System.out.println("Error: El campo no puede estar vacío.");
                 } else {
-                    boolean esSoloNumeros = true;
-
-                    for (int i = 0; i < comunaInput.length(); i++) {
-                        char caracter = comunaInput.charAt(i);
-
-                      if (caracter < '0' || caracter > '9') {
-                            esSoloNumeros = false;
-                        }
-                    }
-
-                    if (esSoloNumeros == false) {
-                        System.out.println("Error: Debe ingresar solo números positivos y sin letras.");
-                    } else {
-                        territorio.agregarComuna(comunaInput);
-                        System.out.println("¡Comuna agregada con éxito!"); // Mensaje de confirmación [cite: 4]
-                    }
+                    territorio.agregarComuna(comunaInput);
+                    System.out.println("¡Comuna agregada con éxito!");
                 }
                 System.out.println("\n--------------------------------------------------");
             }
@@ -117,7 +103,7 @@ public class Menu {
             }
 
             else if (opcion == 3) {
-                teclado.nextLine(); // Limpiar el buffer
+                teclado.nextLine();
                 System.out.print("Barrio: ");
                 String barrio = teclado.nextLine();
                 System.out.print("Manzana (Número): ");
@@ -279,7 +265,7 @@ public class Menu {
 
                 if(tipo == 1){
                     System.out.print("Código: ");
-                    int codigoInt = teclado.nextInt(); // Evaluamos como entero para ver si es positivo
+                    int codigoInt = teclado.nextInt();
 
                     if (codigoInt <= 0) {
                         System.out.println("Error: El código debe ser un número positivo.");
