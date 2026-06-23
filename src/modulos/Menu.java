@@ -69,25 +69,37 @@ public class Menu {
             opcion = teclado.nextInt();
 
             // Opciones
-            // REEMPLAZAR EN OPCIÓN 1 DE Menu.java:
+
             if (opcion == 1) {
                 teclado.nextLine(); // Limpiar el buffer
                 System.out.print("Nombre comuna: ");
                 String comunaInput = teclado.nextLine();
 
-                // Validamos de forma simple: ¿Tiene solo dígitos del 0 al 9?
-                if (comunaInput.trim().isEmpty()) {
+                if (comunaInput.equals("")) {
                     System.out.println("Error: El campo no puede estar vacío.");
-                } else if (!comunaInput.matches("\\d+")) {
-                    // Si no son solo números, o si pusieron un signo menos (ej: -13), entra acá
-                    System.out.println("Error: Debe ingresar solo números positivos y sin letras."); [cite: 5, 6]
                 } else {
-                    // Si pasó la validación, procedemos de forma segura
-                    territorio.agregarComuna(comunaInput);
-                    System.out.println("¡Comuna agregada con éxito!"); // Mensaje de confirmación [cite: 4]
+                    boolean esSoloNumeros = true;
+
+                    for (int i = 0; i < comunaInput.length(); i++) {
+                        char caracter = comunaInput.charAt(i);
+
+                      if (caracter < '0' || caracter > '9') {
+                            esSoloNumeros = false;
+                        }
+                    }
+
+                    // 3. Actuar según el resultado del bucle
+                    if (esSoloNumeros == false) {
+                        System.out.println("Error: Debe ingresar solo números positivos y sin letras.");
+                    } else {
+                        territorio.agregarComuna(comunaInput);
+                        System.out.println("¡Comuna agregada con éxito!"); // Mensaje de confirmación [cite: 4]
+                    }
                 }
                 System.out.println("\n--------------------------------------------------");
-            } else if (opcion == 2) {
+            }
+
+            else if (opcion == 2) {
                 teclado.nextLine();
                 System.out.print("Comuna: ");
                 String comuna = teclado.nextLine();
@@ -101,28 +113,54 @@ public class Menu {
                     System.out.println("¡Barrio asignado con éxito!");
                 }
                 System.out.println("\n----------------------------------------------------------------");
-            } // REEMPLAZAR EN OPCIÓN 3 DE Menu.java:
+            }
+
             else if (opcion == 3) {
                 teclado.nextLine(); // Limpiar el buffer
                 System.out.print("Barrio: ");
                 String barrio = teclado.nextLine();
-                System.out.print("Manzana (Código/Nombre): ");
-                String manzana = teclado.nextLine();
+                System.out.print("Manzana (Número): ");
+                String manzanaInput = teclado.nextLine();
 
-                if (manzana.trim().isEmpty()) {
+                if (manzanaInput.equals("")) {
                     System.out.println("Error: El nombre o código de la manzana no puede estar vacío.");
-                } else if (manzana.matches("-\\d+")) {
-                    // Si el usuario intenta escribir un número negativo (ej: -5)
-                    System.out.println("Error: El identificador de la manzana no puede ser negativo.");
                 } else {
-                    // Aquí se realiza la carga
-                    territorio.agregarManzana(barrio, manzana);
-                    System.out.println("¡Manzana asignada con éxito al barrio " + barrio + "!");
+                    char[] caracteres = manzanaInput.toCharArray();
+                    boolean esNumeroValido = true;
+                    int inicio = 0;
+
+                    if (caracteres.length > 0 && caracteres[0] == '-') {
+                        inicio = 1;
+                    }
+
+                    if (inicio == 1 && caracteres.length == 1) {
+                        esNumeroValido = false;
+                    }
+
+                    for (int i = inicio; i < caracteres.length; i++) {
+                        if (caracteres[i] < '0' || caracteres[i] > '9') {
+                            esNumeroValido = false;
+                        }
+                    }
+
+                    if (esNumeroValido == false) {
+                        System.out.println("Error: Debe ingresar un valor numérico válido.");
+                    } else {
+                        int numeroManzana = Integer.parseInt(manzanaInput);
+
+                       if (numeroManzana < 0) {
+                            System.out.println("Error: El identificador de la manzana no puede ser negativo.");
+                        } else {
+                            territorio.agregarManzana(barrio, manzanaInput);
+                            System.out.println("¡Manzana asignada con éxito al barrio " + barrio + "!");
+                        }
+                    }
                 }
                 System.out.println("\n-------------------------------------------------------------------------------------------------------------------------------------");
             }
+
             else if (opcion == 4) {
-                teclado.nextLine(); // Limpiar el buffer
+                teclado.nextLine();
                 System.out.print("Nombre del territorio a buscar: ");
                 String nombre = teclado.nextLine();
 
@@ -133,11 +171,15 @@ public class Menu {
                     territorio.buscarTerritorio(nombre);
                 }
                 System.out.println("\n-------------------------------------------------------------");
-            }else if (opcion == 5) {
+            }
+
+            else if (opcion == 5) {
                 territorio.mostrarEstructura();
                 System.out.println("\n------------------------------");
 
-            } else if (opcion == 6) {
+            }
+
+            else if (opcion == 6) {
                 System.out.print("ID: ");
                 String id = teclado.next();
                 teclado.nextLine();
@@ -146,7 +188,9 @@ public class Menu {
                 redVial.agregarInterseccion(new Interseccion(id, nombre));
                 System.out.println("\n------------------------------");
 
-            }  else if (opcion == 7) {
+            }
+
+            else if (opcion == 7) {
                 teclado.nextLine();
                 System.out.println("\n--- Intersecciones Disponibles ---");
                 redVial.mostrarRed();
@@ -167,7 +211,9 @@ public class Menu {
                     redVial.agregarCalle(new Calle(nombre, distancia), origen, destino);
                     System.out.println("¡Calle agregada de forma segura!");
                 }
-            } else if (opcion == 9) {
+            }
+
+            else if (opcion == 9) {
                 System.out.print("Origen: ");
                 String origen = teclado.next();
                 System.out.print("Destino: ");
@@ -179,7 +225,9 @@ public class Menu {
                 } else {
                     System.out.println("Error: No existe una ruta válida entre el origen y el destino ingresados.");
                 }
-            } else if (opcion == 10) {
+            }
+
+            else if (opcion == 10) {
                 teclado.nextLine();
                 System.out.print("Descripción: ");
                 String descripcion = teclado.nextLine();
@@ -195,7 +243,6 @@ public class Menu {
                     System.out.print("Hora (Formato HH:MM): ");
                     String hora = teclado.next();
 
-                    // Validación básica del formato de hora
                     try {
                         String[] partes = hora.split(":");
                         int hrs = Integer.parseInt(partes[0]);
@@ -211,14 +258,20 @@ public class Menu {
                         System.out.println("Error: Formato de hora incorrecto. Use HH:MM.");
                     }
                 }
-            }else if (opcion == 11) {
+            }
+
+            else if (opcion == 11) {
                 despacho.despacharSiguiente();
 
 
 
-            }else if (opcion == 12) {
+            }
+
+            else if (opcion == 12) {
                 despacho.mostrarTodasLasEmergencias();
-            }else if (opcion == 13) {
+            }
+
+            else if (opcion == 13) {
                 System.out.println("1. Semáforo");
                 System.out.println("2. Cámara");
                 int tipo = teclado.nextInt();
@@ -261,30 +314,40 @@ public class Menu {
                         System.out.println("¡Cámara registrada!");
                     }
                 }
-            } else if (opcion == 14) {
+            }
+
+            else if (opcion == 14) {
                 gestor.mostrarTodos();
 
-            }else if (opcion == 16) {
+            }
+
+            else if (opcion == 16) {
                 System.out.print("Código: ");
                 String codigo = teclado.next();
                 gestor.obtener(codigo);
 
 
 
-            }else if (opcion == 17) {
+            }
+
+            else if (opcion == 17) {
                 System.out.print("Código: ");
                 String codigo = teclado.next();
                 gestor.consultarEstado(codigo);
 
 
-            }else if (opcion == 18) {
+            }
+
+            else if (opcion == 18) {
                 System.out.print("Código: ");
                 String codigo = teclado.next();
                 gestor.modificarEstado( codigo,Dispositivo.Estado.FALLA);
 
 
 
-            }else if (opcion == 19) {
+            }
+
+            else if (opcion == 19) {
                 System.out.print("Código semáforo: ");
                 String codigo = teclado.next();
                 gestor.cambiarLuzSemaforo(codigo);
