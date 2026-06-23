@@ -2,6 +2,7 @@ package modulos;
 import modelo.Interseccion;
 import modelo.*;
 
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -78,6 +79,25 @@ public class Menu {
                 if (comunaInput.equals("")) {
                     System.out.println("Error: El campo no puede estar vacío.");
                 } else {
+                    boolean esSoloNumeros = true;
+
+                    for (int i = 0; i < comunaInput.length(); i++) {
+                        char caracter = comunaInput.charAt(i);
+
+                        if (caracter < '0' || caracter > '9') {
+                            esSoloNumeros = false;
+                        }
+                    }
+                    // 3. Actuar según el resultado del bucle
+                    if (esSoloNumeros == false) {
+                        System.out.println("Error: Debe ingresar solo números positivos y sin letras.");
+                    } else {
+                        territorio.agregarComuna(comunaInput);
+                        System.out.println("¡Comuna agregada con éxito!"); // Mensaje de confirmación [cite: 4]
+                    }
+                }
+                System.out.println("\n--------------------------------------------------");
+            } else if (opcion == 2) {
                     territorio.agregarComuna(comunaInput);
                     System.out.println("¡Comuna agregada con éxito!");
                 }
@@ -88,15 +108,16 @@ public class Menu {
                 teclado.nextLine();
                 System.out.print("Comuna: ");
                 String comuna = teclado.nextLine();
+
                 System.out.print("Barrio: ");
                 String barrio = teclado.nextLine();
+
                 if (territorio.existeTerritorio(barrio)) {
 
                     System.out.println("Error: El barrio ya existe.");
 
-                } else {
+                } else if (territorio.agregarBarrio(comuna, barrio) != null) {
 
-                    territorio.agregarBarrio(comuna, barrio);
                     System.out.println("¡El barrio fue agregado correctamente bajo la comuna indicada!");
                 }
                 System.out.println("\n----------------------------------------------------------------");
@@ -179,26 +200,36 @@ public class Menu {
 
             else if (opcion == 7) {
                 teclado.nextLine();
+
                 System.out.println("\n--- Intersecciones Disponibles ---");
                 redVial.mostrarRed();
-
                 System.out.print("Nombre calle: ");
                 String nombre = teclado.nextLine();
                 System.out.print("Distancia: ");
                 int distancia = teclado.nextInt();
-
                 if (distancia <= 0) {
-                    System.out.println("Error: La distancia debe ser un número positivo.");
+                    System.out.println("Error: La distancia debe ser positiva.");
                 } else {
                     System.out.print("ID origen: ");
                     String origen = teclado.next();
                     System.out.print("ID destino: ");
                     String destino = teclado.next();
+                    if (redVial.buscarInterseccion(origen) == null) {
+                        System.out.println("Error: El ID de origen no existe.");
+                    } else if (redVial.buscarInterseccion(destino) == null) {
+                        System.out.println("Error: El ID de destino no existe.");
+                    } else {
+                        redVial.agregarCalle(
+                                new Calle(nombre, distancia),
+                                origen,
+                                destino
+                        );
 
-                    redVial.agregarCalle(new Calle(nombre, distancia), origen, destino);
-                    System.out.println("¡Calle agregada de forma segura!");
-                }
+                        System.out.println("¡Calle agregada correctamente!");
+                    }
             }
+            }  else if (opcion == 8) {
+                redVial.mostrarRed();
 
             else if (opcion == 9) {
                 System.out.print("Origen: ");
