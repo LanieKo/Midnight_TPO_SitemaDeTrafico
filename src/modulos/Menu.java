@@ -105,12 +105,14 @@ public class Menu {
                 String comuna = teclado.nextLine();
                 System.out.print("Barrio: ");
                 String barrio = teclado.nextLine();
+                if (territorio.existeTerritorio(barrio)) {
 
-                if (!barrio.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
-                    System.out.println("Error: El nombre del barrio debe contener solo palabras.");
+                    System.out.println("Error: El barrio ya existe.");
+
                 } else {
+
                     territorio.agregarBarrio(comuna, barrio);
-                    System.out.println("¡Barrio asignado con éxito!");
+                    System.out.println("¡El barrio fue agregado correctamente bajo la comuna indicada!");
                 }
                 System.out.println("\n----------------------------------------------------------------");
             }
