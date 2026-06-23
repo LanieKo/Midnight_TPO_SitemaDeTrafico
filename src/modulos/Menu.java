@@ -88,17 +88,18 @@ public class Menu {
                 }
                 System.out.println("\n--------------------------------------------------");
             } else if (opcion == 2) {
-                teclado.nextLine();
                 System.out.print("Comuna: ");
                 String comuna = teclado.nextLine();
                 System.out.print("Barrio: ");
                 String barrio = teclado.nextLine();
+                if (territorio.existeTerritorio(barrio)) {
 
-                if (!barrio.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
-                    System.out.println("Error: El nombre del barrio debe contener solo palabras.");
+                    System.out.println("Error: El barrio ya existe.");
+
                 } else {
+
                     territorio.agregarBarrio(comuna, barrio);
-                    System.out.println("¡Barrio asignado con éxito!");
+                    System.out.println("¡El barrio fue agregado correctamente bajo la comuna indicada!");
                 }
                 System.out.println("\n----------------------------------------------------------------");
             } // REEMPLAZAR EN OPCIÓN 3 DE Menu.java:
@@ -167,6 +168,9 @@ public class Menu {
                     redVial.agregarCalle(new Calle(nombre, distancia), origen, destino);
                     System.out.println("¡Calle agregada de forma segura!");
                 }
+            }  else if (opcion == 8) {
+                redVial.mostrarRed();
+
             } else if (opcion == 9) {
                 System.out.print("Origen: ");
                 String origen = teclado.next();

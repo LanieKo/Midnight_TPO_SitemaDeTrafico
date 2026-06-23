@@ -96,12 +96,22 @@ public class OrganizacionTerritorial {
     // Busca y muestra información de un territorio
     public void buscarTerritorio(String nombre) {
         NodoGeneral<String> nodo = arbolTerritorial.buscar(nombre);
-        if (nodo != null) {
-            System.out.println("Territorio encontrado: " + nodo.dato
-                    + " | Subdivisiones directas: " + nodo.cantHijos);
-        } else {
+        if (nodo == null) {
             System.out.println("Territorio no encontrado: " + nombre);
+            return;
         }
+        System.out.println("Territorio encontrado: " + nodo.dato);
+        System.out.println("Subdivisiones directas: " + nodo.cantHijos);
+        if (nodo.cantHijos > 0) {
+            System.out.println("Listado:");
+            for (int i = 0; i < nodo.cantHijos; i++) {
+                System.out.println("- " + nodo.hijos[i].dato);
+            }
+        }
+    }
+
+    public boolean existeTerritorio(String nombre) {
+        return arbolTerritorial.buscar(nombre) != null;
     }
 
     public Ciudad getCiudad()       {
