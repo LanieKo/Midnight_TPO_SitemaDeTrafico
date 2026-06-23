@@ -88,7 +88,6 @@ public class Menu {
                         }
                     }
 
-                    // 3. Actuar según el resultado del bucle
                     if (esSoloNumeros == false) {
                         System.out.println("Error: Debe ingresar solo números positivos y sin letras.");
                     } else {
